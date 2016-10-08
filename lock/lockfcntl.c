@@ -10,7 +10,7 @@ my_lock(int fd)
 	lock.l_start = 0;
 	lock.l_len = 0;				/* write lock entire file */
 
-	Fcntl(fd, F_SETLKW, &lock);
+	Fcntl(fd, F_SETLKW, &lock); /* we specify a command of F_SETLKW when obtaining the lock, because if the lock is not available, we want to block until it is available */
 }
 
 void
